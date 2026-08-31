@@ -1,0 +1,25 @@
+{
+  "dataset": "tcga_brca",
+  "method": "frozen_pathology_plus_independent_pca_cox_omics",
+  "alpha": 0.2,
+  "calibration_fit": "outer_training_empirical_cdf_only",
+  "validation_or_test_weight_search": false,
+  "selected_omics": 3189,
+  "signature_group_sizes": {
+    "Tumor Suppressor Genes": 91,
+    "Oncogenes": 353,
+    "Protein Kinases": 553,
+    "Cell Differentiation Markers": 480,
+    "Transcription Factors": 1566,
+    "Cytokines and Growth Factors": 480
+  },
+  "fold_mean_baseline_c_index": 0.6335739868676585,
+  "fold_mean_omics_c_index": 0.5688734904279225,
+  "fold_mean_fused_c_index": 0.6394666876305448,
+  "fold_mean_delta": 0.005892700762886305,
+  "positive_folds": 4,
+  "bootstrap_samples": 5000,
+  "delta_ci025": -0.010564742119505192,
+  "delta_ci975": 0.02248431702974699,
+  "probability_delta_gt_zero": 0.7464
+}

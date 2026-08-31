@@ -1,0 +1,237 @@
+{
+  "BLCA": {
+    "design_columns": [
+      "high_risk",
+      "age_per_10y",
+      "female"
+    ],
+    "sex_included": true,
+    "sex_counts": {
+      "0": 277,
+      "1": 96
+    },
+    "raw_subtype_counts": {
+      "BLCA": 373
+    },
+    "collapsed_subtype_counts": {
+      "BLCA": 373
+    },
+    "subtype_reference": "BLCA",
+    "minimum_subtype_patients": 20,
+    "site_excluded_reason": "30+ sparse site categories would overfit low-event cohorts",
+    "prediction_path": "E:\\VLSA-main\\result\\blca-frozen-pathomic-fusion-outer5-20260820\\patient_predictions.csv",
+    "clinical_path": "E:\\VLSA-main\\external\\CAT-with-TPL-master\\dataset_csv\\tcga_blca_all_clean.csv.zip",
+    "prediction_patients": 373,
+    "matched_patients": 373,
+    "complete_case_patients": 373,
+    "excluded_missing_clinical": 0,
+    "events": 169,
+    "full_fit": {
+      "log_likelihood": -866.8162272692108,
+      "score_max_abs": 1.3766765505351941e-14,
+      "converged": true,
+      "iterations": 5
+    },
+    "reduced_fit": {
+      "log_likelihood": -874.2182403827373,
+      "score_max_abs": 2.6423307986078726e-14,
+      "converged": true,
+      "iterations": 5
+    }
+  },
+  "BRCA": {
+    "design_columns": [
+      "high_risk",
+      "age_per_10y",
+      "female",
+      "subtype_ILC",
+      "subtype_Other",
+      "subtype_MDLC"
+    ],
+    "sex_included": true,
+    "sex_counts": {
+      "1.0": 945,
+      "0.0": 11
+    },
+    "raw_subtype_counts": {
+      "IDC": 737,
+      "ILC": 158,
+      "MDLC": 25,
+      "MBC": 11,
+      "IMMC": 11,
+      "BRCA": 5,
+      "PD": 3,
+      "ACBC": 2,
+      "SPC": 2,
+      "MPT": 1,
+      "BRCNOS": 1
+    },
+    "collapsed_subtype_counts": {
+      "IDC": 737,
+      "ILC": 158,
+      "Other": 36,
+      "MDLC": 25
+    },
+    "subtype_reference": "IDC",
+    "minimum_subtype_patients": 20,
+    "site_excluded_reason": "30+ sparse site categories would overfit low-event cohorts",
+    "prediction_path": "E:\\VLSA-main\\result\\brca-frozen-pathomic-fusion-outer5-20260820\\patient_predictions.csv",
+    "clinical_path": "E:\\VLSA-main\\external\\CAT-with-TPL-master\\dataset_csv\\tcga_brca_all_clean.csv.zip",
+    "prediction_patients": 956,
+    "matched_patients": 956,
+    "complete_case_patients": 956,
+    "excluded_missing_clinical": 0,
+    "events": 130,
+    "full_fit": {
+      "log_likelihood": -688.7821474279397,
+      "score_max_abs": 7.163811877042292e-09,
+      "converged": true,
+      "iterations": 6
+    },
+    "reduced_fit": {
+      "log_likelihood": -703.4433614640227,
+      "score_max_abs": 5.906386491005833e-14,
+      "converged": true,
+      "iterations": 7
+    }
+  },
+  "GBMLGG": {
+    "design_columns": [
+      "high_risk",
+      "age_per_10y",
+      "female",
+      "subtype_AASTR",
+      "subtype_ODG",
+      "subtype_GBM",
+      "subtype_AOAST",
+      "subtype_ASTR"
+    ],
+    "sex_included": true,
+    "sex_counts": {
+      "0.0": 330,
+      "1.0": 239
+    },
+    "raw_subtype_counts": {
+      "OAST": 128,
+      "AASTR": 121,
+      "ODG": 101,
+      "GBM": 90,
+      "AOAST": 71,
+      "ASTR": 58
+    },
+    "collapsed_subtype_counts": {
+      "OAST": 128,
+      "AASTR": 121,
+      "ODG": 101,
+      "GBM": 90,
+      "AOAST": 71,
+      "ASTR": 58
+    },
+    "subtype_reference": "OAST",
+    "minimum_subtype_patients": 20,
+    "site_excluded_reason": "30+ sparse site categories would overfit low-event cohorts",
+    "prediction_path": "E:\\VLSA-main\\result\\gbmlgg-frozen-pathomic-fusion-outer5-20260820\\patient_predictions.csv",
+    "clinical_path": "E:\\VLSA-main\\external\\CAT-with-TPL-master\\dataset_csv\\tcga_gbmlgg_all_clean.csv.zip",
+    "prediction_patients": 569,
+    "matched_patients": 569,
+    "complete_case_patients": 569,
+    "excluded_missing_clinical": 0,
+    "events": 187,
+    "full_fit": {
+      "log_likelihood": -882.04603187768,
+      "score_max_abs": 7.061018436615996e-14,
+      "converged": true,
+      "iterations": 7
+    },
+    "reduced_fit": {
+      "log_likelihood": -891.0962506019291,
+      "score_max_abs": 1.199040866595169e-14,
+      "converged": true,
+      "iterations": 7
+    }
+  },
+  "LUAD": {
+    "design_columns": [
+      "high_risk",
+      "age_per_10y",
+      "female"
+    ],
+    "sex_included": true,
+    "sex_counts": {
+      "1.0": 241,
+      "0.0": 202
+    },
+    "raw_subtype_counts": {
+      "LUAD": 443
+    },
+    "collapsed_subtype_counts": {
+      "LUAD": 443
+    },
+    "subtype_reference": "LUAD",
+    "minimum_subtype_patients": 20,
+    "site_excluded_reason": "30+ sparse site categories would overfit low-event cohorts",
+    "prediction_path": "E:\\VLSA-main\\result\\luad-frozen-pathomic-fusion-cloud-baseline-outer5-20260820\\patient_predictions.csv",
+    "clinical_path": "E:\\VLSA-main\\external\\CAT-with-TPL-master\\dataset_csv\\tcga_luad_all_clean.csv.zip",
+    "prediction_patients": 453,
+    "matched_patients": 453,
+    "complete_case_patients": 443,
+    "excluded_missing_clinical": 10,
+    "events": 155,
+    "full_fit": {
+      "log_likelihood": -798.5290758437831,
+      "score_max_abs": 4.574118861455645e-14,
+      "converged": true,
+      "iterations": 5
+    },
+    "reduced_fit": {
+      "log_likelihood": -808.7506920093438,
+      "score_max_abs": 2.0852430893114615e-11,
+      "converged": true,
+      "iterations": 4
+    }
+  },
+  "UCEC": {
+    "design_columns": [
+      "high_risk",
+      "age_per_10y",
+      "subtype_USC",
+      "subtype_UCEC"
+    ],
+    "sex_included": false,
+    "sex_counts": {
+      "1": 478
+    },
+    "raw_subtype_counts": {
+      "UEC": 361,
+      "USC": 95,
+      "UCEC": 22
+    },
+    "collapsed_subtype_counts": {
+      "UEC": 361,
+      "USC": 95,
+      "UCEC": 22
+    },
+    "subtype_reference": "UEC",
+    "minimum_subtype_patients": 20,
+    "site_excluded_reason": "30+ sparse site categories would overfit low-event cohorts",
+    "prediction_path": "E:\\VLSA-main\\result\\ucec-frozen-pathomic-fusion-outer5-20260820\\patient_predictions.csv",
+    "clinical_path": "E:\\VLSA-main\\external\\CAT-with-TPL-master\\dataset_csv\\tcga_ucec_all_clean.csv.zip",
+    "prediction_patients": 480,
+    "matched_patients": 480,
+    "complete_case_patients": 478,
+    "excluded_missing_clinical": 2,
+    "events": 75,
+    "full_fit": {
+      "log_likelihood": -391.58711399075867,
+      "score_max_abs": 5.017212645341829e-09,
+      "converged": true,
+      "iterations": 5
+    },
+    "reduced_fit": {
+      "log_likelihood": -399.79042480350216,
+      "score_max_abs": 3.977156382006797e-10,
+      "converged": true,
+      "iterations": 5
+    }
+  }
+}

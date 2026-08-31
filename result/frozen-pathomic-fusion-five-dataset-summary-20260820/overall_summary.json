@@ -1,0 +1,18 @@
+{
+  "method": "frozen_inductively_calibrated_pathomic_fusion",
+  "alpha": 0.2,
+  "pca_components": 64,
+  "weight_selection": "fixed_before_outer_test_evaluation",
+  "calibration_fit": "outer_training_empirical_cdf_only",
+  "paper_macro_mean": 0.69542,
+  "matched_baseline_macro_mean": 0.695781808041706,
+  "omics_only_macro_mean": 0.6273023382014052,
+  "fused_macro_mean": 0.705016889788969,
+  "macro_delta_vs_baseline": 0.009235081747263027,
+  "macro_delta_vs_paper": 0.009596889788968933,
+  "positive_datasets": 5,
+  "datasets_above_paper": 5,
+  "positive_folds": 18,
+  "total_folds": 25,
+  "datasets_with_ci_excluding_zero": 2
+}

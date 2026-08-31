@@ -1,0 +1,264 @@
+{
+  "metric_contract": "SurvivalEVAL_mean_continuous_comparable_all_ties",
+  "bootstrap_samples_requested": 5000,
+  "seed": 42,
+  "datasets": {
+    "blca": {
+      "folds": [
+        {
+          "fold": 0,
+          "patients": 75,
+          "events": 34,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_blca_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_0_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_blca_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_0_results.pkl"
+        },
+        {
+          "fold": 1,
+          "patients": 75,
+          "events": 34,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_blca_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_1_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_blca_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_1_results.pkl"
+        },
+        {
+          "fold": 2,
+          "patients": 75,
+          "events": 34,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_blca_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_2_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_blca_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_2_results.pkl"
+        },
+        {
+          "fold": 3,
+          "patients": 74,
+          "events": 34,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_blca_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_3_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_blca_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_3_results.pkl"
+        },
+        {
+          "fold": 4,
+          "patients": 74,
+          "events": 33,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_blca_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_4_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_blca_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_4_results.pkl"
+        }
+      ],
+      "ficpf_source": "E:\\VLSA-main\\result\\blca-frozen-pathomic-fusion-cloud-baseline-outer5-20260820\\patient_predictions.csv",
+      "external_author_vs_unified_max_abs_delta": 9.019562226353361e-05
+    },
+    "brca": {
+      "folds": [
+        {
+          "fold": 0,
+          "patients": 192,
+          "events": 26,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_brca_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_0_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_brca_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_0_results.pkl"
+        },
+        {
+          "fold": 1,
+          "patients": 191,
+          "events": 26,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_brca_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_1_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_brca_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_1_results.pkl"
+        },
+        {
+          "fold": 2,
+          "patients": 191,
+          "events": 26,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_brca_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_2_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_brca_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_2_results.pkl"
+        },
+        {
+          "fold": 3,
+          "patients": 191,
+          "events": 26,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_brca_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_3_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_brca_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_3_results.pkl"
+        },
+        {
+          "fold": 4,
+          "patients": 191,
+          "events": 26,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_brca_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_4_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_brca_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_4_results.pkl"
+        }
+      ],
+      "ficpf_source": "E:\\VLSA-main\\result\\brca-frozen-pathomic-fusion-outer5-20260820\\patient_predictions.csv",
+      "external_author_vs_unified_max_abs_delta": 0.0003126995022824097
+    },
+    "gbmlgg": {
+      "folds": [
+        {
+          "fold": 0,
+          "patients": 114,
+          "events": 38,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_gbmlgg_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_0_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_gbmlgg_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_0_results.pkl"
+        },
+        {
+          "fold": 1,
+          "patients": 114,
+          "events": 38,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_gbmlgg_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_1_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_gbmlgg_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_1_results.pkl"
+        },
+        {
+          "fold": 2,
+          "patients": 114,
+          "events": 37,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_gbmlgg_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_2_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_gbmlgg_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_2_results.pkl"
+        },
+        {
+          "fold": 3,
+          "patients": 114,
+          "events": 37,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_gbmlgg_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_3_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_gbmlgg_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_3_results.pkl"
+        },
+        {
+          "fold": 4,
+          "patients": 113,
+          "events": 37,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_gbmlgg_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_4_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_gbmlgg_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_4_results.pkl"
+        }
+      ],
+      "ficpf_source": "E:\\VLSA-main\\result\\gbmlgg-frozen-pathomic-fusion-outer5-20260820\\patient_predictions.csv",
+      "external_author_vs_unified_max_abs_delta": 0.0005712747806304597
+    },
+    "luad": {
+      "folds": [
+        {
+          "fold": 0,
+          "patients": 91,
+          "events": 32,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_luad_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_0_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_luad_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_0_results.pkl"
+        },
+        {
+          "fold": 1,
+          "patients": 91,
+          "events": 31,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_luad_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_1_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_luad_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_1_results.pkl"
+        },
+        {
+          "fold": 2,
+          "patients": 91,
+          "events": 32,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_luad_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_2_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_luad_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_2_results.pkl"
+        },
+        {
+          "fold": 3,
+          "patients": 90,
+          "events": 31,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_luad_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_3_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_luad_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_3_results.pkl"
+        },
+        {
+          "fold": 4,
+          "patients": 90,
+          "events": 32,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_luad_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_4_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_luad_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_4_results.pkl"
+        }
+      ],
+      "ficpf_source": "E:\\VLSA-main\\result\\luad-frozen-pathomic-fusion-cloud-baseline-outer5-20260820\\patient_predictions.csv",
+      "external_author_vs_unified_max_abs_delta": 0.00018930564385111204
+    },
+    "ucec": {
+      "folds": [
+        {
+          "fold": 0,
+          "patients": 96,
+          "events": 15,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_ucec_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_0_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_ucec_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_0_results.pkl"
+        },
+        {
+          "fold": 1,
+          "patients": 96,
+          "events": 15,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_ucec_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_1_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_ucec_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_1_results.pkl"
+        },
+        {
+          "fold": 2,
+          "patients": 96,
+          "events": 15,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_ucec_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_2_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_ucec_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_2_results.pkl"
+        },
+        {
+          "fold": 3,
+          "patients": 96,
+          "events": 15,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_ucec_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_3_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_ucec_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_3_results.pkl"
+        },
+        {
+          "fold": 4,
+          "patients": 96,
+          "events": 15,
+          "patient_sets_equal": true,
+          "labels_equal": true,
+          "mcat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_CONCH512\\tcga_ucec_MCAT_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_4_results.pkl",
+          "cat_prediction": "E:\\VLSA-main\\result\\external_multimodal_comparison_20260821\\raw\\results-conch\\5foldcv\\MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_mcat_clip_CONCH512\\tcga_ucec_MCAT_Clip_nll_surv_a0.0_lr1e-04_5foldcv_gc16_concat_s1\\split_latest_val_4_results.pkl"
+        }
+      ],
+      "ficpf_source": "E:\\VLSA-main\\result\\ucec-frozen-pathomic-fusion-outer5-20260820\\patient_predictions.csv",
+      "external_author_vs_unified_max_abs_delta": 0.00025144792636255797
+    }
+  },
+  "all_patient_sets_equal": true,
+  "all_labels_equal": true
+}

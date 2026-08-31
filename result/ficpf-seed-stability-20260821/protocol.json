@@ -1,0 +1,17 @@
+{
+  "locked_primary_seed": 42,
+  "evaluated_seeds": [
+    0,
+    1,
+    42,
+    3404,
+    3405
+  ],
+  "seed_selected_from_outer_test": false,
+  "best_seed_used_for_primary_result": false,
+  "all_other_parameters_fixed": true,
+  "pca_components": 64,
+  "alpha": 0.2,
+  "single_thread": true,
+  "purpose": "randomized_PCA_numerical_stability_only"
+}

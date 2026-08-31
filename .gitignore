@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# IDE and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Experiment artifacts
+wandb/
+logs/
+*.log
+*.pth
+*.pt
+*.ckpt
+
+# Large omics inputs are documented in DATA.md and kept outside Git.
+external/CAT-with-TPL-master/dataset_csv/tcga_*_all_clean.csv.zip
+external/CAT-with-TPL-master/dataset_csv_sig/tcga_*_all_clean.csv.zip
+
+# Locally reproduced outputs
+result/reproduced_*/

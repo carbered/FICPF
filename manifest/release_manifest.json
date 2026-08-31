@@ -1,0 +1,18 @@
+{
+  "release_name": "FICPF_GitHub_20260831",
+  "created_date": "2026-08-31",
+  "locked_macro_c_index": 0.7050168897889689,
+  "locked_alpha": 0.2,
+  "locked_pca_components": 64,
+  "cohorts": ["blca", "brca", "gbmlgg", "luad", "ucec"],
+  "scope": "GitHub-size FICPF analysis package from frozen pathology predictions",
+  "package_limit_mib": 25,
+  "large_omics_tables_bundled": false,
+  "upstream_not_bundled": [
+    "raw whole-slide images",
+    "CONCH weights",
+    "WSI patch features",
+    "VLSA checkpoints and full historical runs",
+    "preprocessed RNA-seq/CNV tables"
+  ]
+}
