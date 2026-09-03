@@ -1,0 +1,6 @@
+**************** MODEL METRICS ****************
+test/pred_c_index    -->   0.5070349140177176
+test/pred_loss       -->   0.49344107508659363
+train/pred_c_index   -->   0.6345788172656398
+train/pred_loss      -->   0.5863178968429565
+**************** MODEL METRICS ****************

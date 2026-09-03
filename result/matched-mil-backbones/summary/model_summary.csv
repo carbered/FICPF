@@ -1,0 +1,3 @@
+model,completed_datasets,macro_mean_c_index,matched_vlsa_macro_mean,delta_vs_matched_vlsa_macro
+ABMIL,5,0.6215081008075491,0.695781808041706,-0.07427370723415683
+TransMIL,5,0.6447394828654323,0.695781808041706,-0.05104232517627372

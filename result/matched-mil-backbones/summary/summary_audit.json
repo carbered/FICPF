@@ -1,0 +1,16 @@
+{
+  "models": [
+    "ABMIL",
+    "TransMIL"
+  ],
+  "cohorts": [
+    "blca",
+    "brca",
+    "gbmlgg",
+    "luad",
+    "ucec"
+  ],
+  "missing_metrics": [],
+  "formal_complete": true,
+  "matched_vlsa_macro_mean": 0.695781808041706
+}
