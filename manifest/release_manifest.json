@@ -6,7 +6,10 @@
   "locked_pca_components": 64,
   "cohorts": ["blca", "brca", "gbmlgg", "luad", "ucec"],
   "scope": "GitHub-size FICPF analysis package from frozen pathology predictions",
-  "package_limit_mib": 25,
+  "package_limit_mib": 50,
+  "individual_file_limit_mib": 25,
+  "latest_content_update": "2026-10-20",
+  "current_chinese_word_manuscript_included": false,
   "large_omics_tables_bundled": false,
   "upstream_not_bundled": [
     "raw whole-slide images",

@@ -1,0 +1,22 @@
+{
+  "updated_utc": "2026-10-20T14:00:45.936279+00:00",
+  "new_word_manuscript_uploaded": false,
+  "scope": "Code, locked/derived result files, figure assets and reproducibility metadata only.",
+  "primary_results_changed": false,
+  "partial_motcat_experiment_included": false,
+  "methods": [
+    "ABMIL",
+    "TransMIL",
+    "ILRA",
+    "DSMIL",
+    "VLSA",
+    "MCAT",
+    "CAT-with-TPL",
+    "FICPF"
+  ],
+  "retained_mil_test_curve_files": 100,
+  "archived_cloud_label_converter_sha256": "070a435c1c03b644b96f43a21b14dbd6465c76eacb807ca247126be2d7b2b87f",
+  "source_sha256": {
+    "tools\\refine_ficpf_main_figure.py": "9e4cfea20bd20ea140d8c7887f3e06fe35708c7b56390dbc9e55005e2b7d737f"
+  }
+}

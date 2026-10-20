@@ -1,0 +1,6 @@
+# Keep exact publication bytes so SHA256 manifests and retained-input hashes
+# remain valid across Windows and Unix checkouts.
+* -text whitespace=cr-at-eol
+# Preserve generated SVG paths and archived source/config bytes verbatim.
+*.svg -whitespace
+result/retained-mil-inputs/** -whitespace

@@ -9,7 +9,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MAX_RELEASE_BYTES = 25 * 1024 * 1024
+MAX_RELEASE_BYTES = 50 * 1024 * 1024
+MAX_FILE_BYTES = 25 * 1024 * 1024
 EXPECTED_MACRO = 0.7050168897889689
 EXPECTED_BACKBONE_SEED_MACRO = {
     42: (0.695781808041706, 0.7052604568447455, 0.009478648803039577),
@@ -61,6 +62,8 @@ def verify_scope():
     violations = []
     for path in ROOT.rglob("*"):
         relative = path.relative_to(ROOT)
+        if ".git" in relative.parts or "__pycache__" in relative.parts:
+            continue
         # Python may create untracked __pycache__ directories after first use.
         if any(part in FORBIDDEN_DIRS for part in relative.parts):
             violations.append(str(relative))
@@ -75,14 +78,17 @@ def verify_scope():
 
 
 def verify_package_size():
-    files = [path for path in ROOT.rglob("*") if path.is_file()]
+    files = [path for path in ROOT.rglob("*") if path.is_file()
+             and ".git" not in path.relative_to(ROOT).parts
+             and "__pycache__" not in path.relative_to(ROOT).parts
+             and path.suffix not in {".pyc", ".pyo"}]
     total_bytes = sum(path.stat().st_size for path in files)
     if total_bytes >= MAX_RELEASE_BYTES:
         raise RuntimeError(
             f"GitHub package is {total_bytes / 1024 / 1024:.2f} MiB; "
             f"expected less than {MAX_RELEASE_BYTES / 1024 / 1024:.0f} MiB."
         )
-    oversized = [path for path in files if path.stat().st_size >= MAX_RELEASE_BYTES]
+    oversized = [path for path in files if path.stat().st_size >= MAX_FILE_BYTES]
     if oversized:
         raise RuntimeError(f"Files exceed the 25 MiB limit: {oversized}")
     return len(files), total_bytes
@@ -192,6 +198,9 @@ def main():
     checked = verify_manifest()
     values, macro = verify_primary_result()
     backbone_rows = verify_backbone_seed_stability()
+    from verify_current_results import verify
+    current = verify()
+    print(f"current_evidence_verified={current}")
     print("FICPF clean release verification passed.")
     print(f"checked_files={checked}")
     print(f"package_files={file_count}")

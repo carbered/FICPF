@@ -33,18 +33,36 @@ DATASET_COLORS = {
     "UCEC": "#D55E00",
     "MACRO": "#202124",
 }
+COHORTS = ["BLCA", "BRCA", "GBMLGG", "LUAD", "UCEC"]
+DATASET_MARKERS = {
+    "BLCA": "o",
+    "BRCA": "s",
+    "GBMLGG": "^",
+    "LUAD": "v",
+    "UCEC": "P",
+    "MACRO": "D",
+}
+DATASET_LINESTYLES = {
+    "BLCA": "-",
+    "BRCA": "--",
+    "GBMLGG": "-.",
+    "LUAD": ":",
+    "UCEC": (0, (3, 1, 1, 1)),
+    "MACRO": "-",
+}
 
 
 def setup_style():
     plt.rcParams.update(
         {
-            "font.family": "DejaVu Sans",
+            "font.family": "sans-serif",
+            "font.sans-serif": ["Arial", "Liberation Sans", "DejaVu Sans"],
             "font.size": 8.5,
             "axes.titlesize": 10,
             "axes.labelsize": 9,
             "xtick.labelsize": 8,
             "ytick.labelsize": 8,
-            "legend.fontsize": 7.5,
+            "legend.fontsize": 7.0,
             "axes.linewidth": 0.8,
             "lines.linewidth": 1.3,
             "pdf.fonttype": 42,
@@ -81,7 +99,7 @@ def save_all(fig, stem):
         path = OUT / f"{stem}.{extension}"
         kwargs = {"bbox_inches": "tight", "pad_inches": 0.06}
         if extension == "png":
-            kwargs["dpi"] = 450
+            kwargs["dpi"] = 600
         fig.savefig(path, **kwargs)
         paths.append(str(path))
     plt.close(fig)
@@ -111,8 +129,8 @@ def make_main_figure():
     fig, axes = plt.subplots(
         1,
         2,
-        figsize=(10.4, 3.45),
-        gridspec_kw={"width_ratios": [1.65, 1.0]},
+        figsize=(7.2, 3.35),
+        gridspec_kw={"width_ratios": [1.08, 1.0]},
     )
     ax = axes[0]
     x = np.arange(len(order), dtype=float)
@@ -141,10 +159,10 @@ def make_main_figure():
     style_axis(ax, "y")
     ax.legend(
         frameon=False,
-        ncol=5,
+        ncol=3,
         loc="lower center",
-        bbox_to_anchor=(0.5, 1.12),
-        columnspacing=1.1,
+        bbox_to_anchor=(0.5, 1.10),
+        columnspacing=0.9,
         handletextpad=0.4,
     )
     panel_label(ax, "A")
@@ -175,19 +193,18 @@ def make_main_figure():
             capsize=2.4,
             zorder=3,
         )
-        ax.text(hi + 0.0013, yi, f"{value:+.3f}", va="center", fontsize=7.5)
     ax.axvline(0.0, color="#4A4D50", linewidth=0.8)
     ax.set_yticks(y)
     ax.set_yticklabels(["Macro" if item == "MACRO" else item for item in order])
     ax.invert_yaxis()
     ax.set_xlabel("C-index gain vs matched VLSA (95% CI)")
     ax.set_title("Paired bootstrap effect")
-    ax.set_xlim(-0.025, 0.038)
+    ax.set_xlim(-0.025, 0.034)
     style_axis(ax, "x")
     panel_label(ax, "B")
 
-    fig.tight_layout(w_pad=2.2)
-    fig.subplots_adjust(top=0.78)
+    fig.tight_layout(w_pad=1.6)
+    fig.subplots_adjust(top=0.73)
     return save_all(fig, "ficpf_main_comparison")
 
 
@@ -197,7 +214,7 @@ def make_ablation_figure():
     alpha = pd.read_csv(ablation_dir / "dataset_summary_alpha_sensitivity.csv")
     pca = pd.read_csv(ROOT / "result" / "ficpf-pca-sensitivity-20260821" / "dataset_summary.csv")
 
-    fig, axes = plt.subplots(1, 3, figsize=(10.6, 3.15))
+    fig, axes = plt.subplots(1, 3, figsize=(7.2, 3.55))
     ax = axes[0]
     component_order = [
         ("pathology_only", "Pathology", COLORS["matched"]),
@@ -207,31 +224,77 @@ def make_ablation_figure():
         ("ficpf_locked", "FICPF", COLORS["ficpf"]),
     ]
     macro = component[component["dataset"] == "MACRO"].set_index("method")
+    cohort_component = component[component["dataset"].isin(COHORTS)]
     y = np.arange(len(component_order), dtype=float)
     values = np.array([macro.loc[key, "mean_c_index"] for key, _, _ in component_order])
     colors = [color for _, _, color in component_order]
     labels = [label for _, label, _ in component_order]
-    ax.hlines(y, 0.61, values, color=colors, linewidth=2.0)
-    ax.scatter(values, y, color=colors, s=42, zorder=3, edgecolor="#333333", linewidth=0.4)
+    for yi, (method, _, color) in zip(y, component_order):
+        cohort_values = (
+            cohort_component[cohort_component["method"] == method]
+            .set_index("dataset")
+            .loc[COHORTS, "mean_c_index"]
+            .to_numpy(dtype=float)
+        )
+        jitter = np.linspace(-0.13, 0.13, len(COHORTS))
+        ax.scatter(
+            cohort_values,
+            yi + jitter,
+            color="#FFFFFF",
+            edgecolor=color,
+            marker="o",
+            s=19,
+            linewidth=0.8,
+            zorder=2,
+        )
+        ax.plot(
+            [cohort_values.min(), cohort_values.max()],
+            [yi, yi],
+            color=color,
+            linewidth=0.8,
+            alpha=0.55,
+            zorder=1,
+        )
+    ax.scatter(
+        values,
+        y,
+        color=colors,
+        marker="D",
+        s=38,
+        zorder=4,
+        edgecolor="#202124",
+        linewidth=0.45,
+    )
     ax.set_yticks(y)
     ax.set_yticklabels(labels)
     ax.invert_yaxis()
-    ax.set_xlim(0.61, 0.712)
-    ax.set_xlabel("Macro C-index")
+    ax.set_xlim(0.54, 0.84)
+    ax.set_xlabel("C-index")
     ax.set_title("Component ablation")
-    for yi, value in zip(y, values):
-        ax.text(value + 0.0015, yi, f"{value:.3f}", va="center", fontsize=7.4)
     style_axis(ax, "x")
     panel_label(ax, "A")
 
     ax = axes[1]
     macro_alpha = alpha[alpha["dataset"] == "MACRO"].sort_values("alpha")
+    for dataset in COHORTS:
+        cohort_alpha = alpha[alpha["dataset"] == dataset].sort_values("alpha")
+        ax.plot(
+            cohort_alpha["alpha"],
+            cohort_alpha["mean_c_index"],
+            color=DATASET_COLORS[dataset],
+            marker=DATASET_MARKERS[dataset],
+            linestyle=DATASET_LINESTYLES[dataset],
+            markersize=2.8,
+            linewidth=0.75,
+            alpha=0.62,
+        )
     ax.plot(
         macro_alpha["alpha"],
         macro_alpha["mean_c_index"],
-        color=COLORS["ficpf"],
-        marker="o",
-        markersize=4.8,
+        color=COLORS["paper"],
+        marker="D",
+        markersize=4.2,
+        linewidth=1.8,
     )
     locked = macro_alpha[np.isclose(macro_alpha["alpha"], 0.20)].iloc[0]
     ax.scatter(
@@ -241,27 +304,41 @@ def make_ablation_figure():
         s=52,
         color=COLORS["paper"],
         zorder=4,
-        label="Locked",
     )
     ax.axvspan(0.10, 0.30, color="#E8F1F7", alpha=0.8, zorder=0)
     ax.set_xticks(macro_alpha["alpha"])
     ax.set_xlabel("Omics fusion weight")
-    ax.set_ylabel("Macro C-index")
-    ax.set_ylim(0.694, 0.708)
+    ax.set_ylabel("C-index")
+    alpha_min = alpha[alpha["dataset"].isin(COHORTS)]["mean_c_index"].min()
+    alpha_max = alpha[alpha["dataset"].isin(COHORTS)]["mean_c_index"].max()
+    alpha_pad = max(0.01, 0.06 * (alpha_max - alpha_min))
+    ax.set_ylim(alpha_min - alpha_pad, alpha_max + alpha_pad)
     ax.set_title("Fixed-weight sensitivity")
     style_axis(ax, "y")
-    ax.legend(frameon=False, loc="lower right")
     panel_label(ax, "B")
 
     ax = axes[2]
     macro_pca = pca[pca["dataset"] == "MACRO"].sort_values("requested_pca_components")
     positions = np.arange(len(macro_pca), dtype=float)
+    for dataset in COHORTS:
+        cohort_pca = pca[pca["dataset"] == dataset].sort_values("requested_pca_components")
+        ax.plot(
+            positions,
+            cohort_pca["mean_fused_c_index"],
+            color=DATASET_COLORS[dataset],
+            marker=DATASET_MARKERS[dataset],
+            linestyle=DATASET_LINESTYLES[dataset],
+            markersize=2.8,
+            linewidth=0.75,
+            alpha=0.62,
+        )
     ax.plot(
         positions,
         macro_pca["mean_fused_c_index"],
-        color=COLORS["mcat"],
-        marker="o",
-        markersize=4.8,
+        color=COLORS["paper"],
+        marker="D",
+        markersize=4.2,
+        linewidth=1.8,
     )
     locked_index = int(np.flatnonzero(macro_pca["requested_pca_components"].to_numpy() == 64)[0])
     ax.scatter(
@@ -271,19 +348,29 @@ def make_ablation_figure():
         s=52,
         color=COLORS["paper"],
         zorder=4,
-        label="Locked",
     )
     ax.set_xticks(positions)
     ax.set_xticklabels(macro_pca["requested_pca_components"].astype(int).astype(str))
     ax.set_xlabel("PCA components")
-    ax.set_ylabel("Macro C-index")
-    ax.set_ylim(0.696, 0.708)
+    ax.set_ylabel("C-index")
+    pca_min = pca[pca["dataset"].isin(COHORTS)]["mean_fused_c_index"].min()
+    pca_max = pca[pca["dataset"].isin(COHORTS)]["mean_fused_c_index"].max()
+    pca_pad = max(0.01, 0.06 * (pca_max - pca_min))
+    ax.set_ylim(pca_min - pca_pad, pca_max + pca_pad)
     ax.set_title("Representation dimension")
     style_axis(ax, "y")
-    ax.legend(frameon=False, loc="lower right")
     panel_label(ax, "C")
 
-    fig.tight_layout(w_pad=2.0)
+    fig.text(
+        0.5,
+        0.01,
+        "Small symbols/lines show cohort means; black diamonds show the macro mean; enlarged diamonds mark locked settings.",
+        ha="center",
+        va="bottom",
+        fontsize=6.7,
+        color="#4A4D50",
+    )
+    fig.tight_layout(w_pad=1.15, rect=(0.0, 0.045, 1.0, 1.0))
     return save_all(fig, "ficpf_ablation_sensitivity")
 
 
@@ -295,6 +382,7 @@ def make_robustness_figure():
         / "dataset_summary.csv"
     )
     data = pd.read_csv(source)
+    repeat_data = pd.read_csv(source.with_name("repeat_metrics.csv"))
     datasets = ["BLCA", "BRCA", "GBMLGG", "LUAD", "UCEC", "MACRO"]
     conditions = [
         ("feature_dropout", "Feature dropout", [0.0, 0.25, 0.50, 0.75], ["0", "25", "50", "75"]),
@@ -302,29 +390,53 @@ def make_robustness_figure():
         ("patient_missing", "Patient-level missing", [0.0, 0.25, 0.50, 0.75, 1.0], ["0", "25", "50", "75", "100"]),
     ]
 
-    fig, axes = plt.subplots(1, 3, figsize=(10.7, 3.25), sharey=True)
+    fig, axes = plt.subplots(1, 3, figsize=(7.2, 3.55), sharey=True)
     for panel_index, (ax, (condition, title, severity, tick_labels)) in enumerate(
         zip(axes, conditions)
     ):
         positions = np.arange(len(severity), dtype=float)
         for dataset in datasets:
-            clean = data[
-                (data["dataset"] == dataset) & (data["condition"] == "clean")
-            ].iloc[0]
-            values = [float(clean["delta_vs_pathology"])]
-            condition_rows = data[
-                (data["dataset"] == dataset) & (data["condition"] == condition)
-            ].set_index("severity")
-            values.extend(
-                float(condition_rows.loc[value, "delta_vs_pathology"])
-                for value in severity[1:]
+            target_datasets = COHORTS if dataset == "MACRO" else [dataset]
+            clean_rows = repeat_data[
+                (repeat_data["dataset"].isin(target_datasets))
+                & (repeat_data["condition"] == "clean")
+            ].copy()
+            clean_delta = float(
+                (clean_rows["perturbed_fused_c_index"] - clean_rows["pathology_c_index"]).mean()
             )
+            means = [clean_delta]
+            standard_deviations = [0.0]
+            for value in severity[1:]:
+                subset = repeat_data[
+                    (repeat_data["dataset"].isin(target_datasets))
+                    & (repeat_data["condition"] == condition)
+                    & np.isclose(repeat_data["severity"], value)
+                ].copy()
+                subset["delta"] = (
+                    subset["perturbed_fused_c_index"] - subset["pathology_c_index"]
+                )
+                repeat_means = subset.groupby("repeat", sort=True)["delta"].mean()
+                means.append(float(repeat_means.mean()))
+                standard_deviations.append(float(repeat_means.std(ddof=1)))
+            values = np.asarray(means, dtype=float)
+            sd = np.asarray(standard_deviations, dtype=float)
             is_macro = dataset == "MACRO"
+            color = DATASET_COLORS[dataset]
+            ax.fill_between(
+                positions,
+                values - sd,
+                values + sd,
+                color=color,
+                alpha=0.16 if is_macro else 0.055,
+                linewidth=0,
+                zorder=3 if is_macro else 1,
+            )
             ax.plot(
                 positions,
                 values,
-                color=DATASET_COLORS[dataset],
-                marker="o",
+                color=color,
+                marker=DATASET_MARKERS[dataset],
+                linestyle=DATASET_LINESTYLES[dataset],
                 markersize=4.2 if is_macro else 3.2,
                 linewidth=2.2 if is_macro else 1.0,
                 alpha=1.0 if is_macro else 0.75,
@@ -339,7 +451,7 @@ def make_robustness_figure():
         else:
             ax.set_xlabel("Missing rate (%)")
         ax.set_title(title)
-        ax.set_ylim(-0.017, 0.021)
+        ax.set_ylim(-0.030, 0.0215)
         style_axis(ax, "y")
         panel_label(ax, chr(ord("A") + panel_index))
     axes[0].set_ylabel("C-index gain vs pathology")
@@ -354,11 +466,20 @@ def make_robustness_figure():
         columnspacing=1.2,
         handletextpad=0.4,
     )
-    fig.tight_layout(w_pad=1.8, rect=(0.0, 0.0, 1.0, 0.94))
+    fig.text(
+        0.5,
+        0.01,
+        "Shading denotes +/-1 SD across 20 corruption repeats; the clean point is deterministic.",
+        ha="center",
+        va="bottom",
+        fontsize=6.7,
+        color="#4A4D50",
+    )
+    fig.tight_layout(w_pad=1.2, rect=(0.0, 0.05, 1.0, 0.91))
     return save_all(fig, "ficpf_omics_robustness")
 
 
-def make_curve_quality_figure():
+def make_curve_quality_figure(vlsa_label="Matched VLSA", audit_prefix=None):
     source = (
         ROOT
         / "result"
@@ -370,7 +491,7 @@ def make_curve_quality_figure():
     data = data.loc[datasets]
     x = np.arange(len(datasets), dtype=float)
 
-    fig, axes = plt.subplots(2, 2, figsize=(10.4, 6.0))
+    fig, axes = plt.subplots(2, 2, figsize=(7.2, 5.25))
     panels = [
         (
             axes[0, 0],
@@ -417,7 +538,7 @@ def make_curve_quality_figure():
             color=COLORS["matched"],
             marker="o",
             s=34,
-            label="Matched VLSA",
+            label=vlsa_label,
             zorder=3,
         )
         ax.scatter(
@@ -446,7 +567,7 @@ def make_curve_quality_figure():
         baseline_pass,
         width=width,
         color=COLORS["matched"],
-        label="Matched VLSA",
+        label=vlsa_label,
     )
     ax.bar(
         x + width / 2,
@@ -460,7 +581,7 @@ def make_curve_quality_figure():
         ax.text(xi + width / 2, candidate_value + 0.09, f"{int(candidate_value)}", ha="center", fontsize=7.5)
     ax.set_xticks(x)
     ax.set_xticklabels(datasets)
-    ax.set_ylabel("Folds passing D-calibration (of 5)")
+    ax.set_ylabel("D-calibration not rejected (folds / 5)")
     ax.set_ylim(0.0, 5.7)
     ax.set_title("Distributional calibration")
     style_axis(ax, "y")
@@ -477,6 +598,14 @@ def make_curve_quality_figure():
         columnspacing=1.6,
     )
     fig.tight_layout(w_pad=2.0, h_pad=2.0, rect=(0.0, 0.0, 1.0, 0.96))
+    if audit_prefix is not None:
+        import sys
+        sys.path.insert(0, str(Path.home() / ".codex/skills/nature-figure/scripts"))
+        from audit_panel_alignment import require_matplotlib_panel_alignment
+        require_matplotlib_panel_alignment(
+            fig, axes=list(axes.flat), panel_ids=["A", "B", "C", "D"],
+            json_out=str(audit_prefix) + ".alignment.json",
+            overlay_svg=str(audit_prefix) + ".alignment.svg", strict=True)
     return save_all(fig, "ficpf_survival_curve_quality")
 
 
